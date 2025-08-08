@@ -17,8 +17,8 @@ return new class extends Migration
             $table->dateTime('finished_date');
             $table->timestamps();
 
-            $table->foreignUuid('user_id')->constrained('users', 'id')->onDelete('set null');
-            $table->foreignUuid('equipament_id')->constrained('equipaments', 'id')->onDelete('set null');
+            $table->foreignUuid('user_id')->nullable()->constrained('users', 'id')->onDelete('set null');
+            $table->foreignUuid('equipament_id')->nullable()->constrained('equipaments', 'id')->onDelete('set null');
         });
     }
 
