@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
+        'member_id'
     ];
 
     /**
@@ -33,6 +35,20 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function isUser(): bool
+    {
+        return $this->type === 'USER';
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->type === 'ADMIN';
+    }
+
+    public function member(){
+        return $this->belongsTo(Member::class, 'member_id');
+    }
 
     /**
      * Get the attributes that should be cast.
