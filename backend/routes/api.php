@@ -4,6 +4,10 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/ping', function () {
+    return response('pong', 200);
+});
+
 Route::prefix('/user')->group(function(){
     Route::post('/member/register', [UserController::class, 'registerMember']);
     Route::post('/register', [UserController::class, 'registerUser']);
