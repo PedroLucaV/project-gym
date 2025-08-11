@@ -23,4 +23,12 @@ class UserController extends Controller
         $user = User::create($validated);
         return response(['message' => 'User Registered', 'data' => $user], 201);
     }
+
+    public function registerAdmin(StoreUserRequest $request){
+        //to apply token and admin validation!!!
+        $validated = $request->validated();
+        $validated['type'] = 'admin';
+        $user = User::create($validated);
+        return response(['message' => 'Admin Registered', 'data' => $user], 201);
+    }
 }
