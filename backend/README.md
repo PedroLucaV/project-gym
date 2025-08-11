@@ -29,3 +29,4 @@ php artisan migrate
 | POST   | `/member/register`| Register member           | Public                          |
 | POST   | `/register`       | Register user             | Public                          |
 | POST   | `/admin/register` | Register Admin            | Protected by token and admin validation|
+| GET    | `/users`          | Get all Users             | Protected by token and admin validation|
