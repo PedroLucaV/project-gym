@@ -36,14 +36,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $attributes = [
+        'type' => 'user'
+    ];
+    
     public function isUser(): bool
     {
-        return $this->type === 'USER';
+        return $this->type === 'user';
     }
 
     public function isAdmin(): bool
     {
-        return $this->type === 'ADMIN';
+        return $this->type === 'admin';
     }
 
     public function member(){
