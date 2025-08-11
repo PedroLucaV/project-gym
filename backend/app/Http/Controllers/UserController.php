@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Member;
@@ -14,5 +15,12 @@ class UserController extends Controller
         $validated = $request->validated();
         $member = Member::create($validated);
         return response(['message'=>'Member Registered', 'data'=>$member], 201);
+    }
+
+    //Register user in gym
+    public function registerUser(StoreUserRequest $request){
+        $validated = $request->validated();
+        $user = User::create($validated);
+        return response(['message' => 'User Registered', 'data' => $user], 201);
     }
 }
