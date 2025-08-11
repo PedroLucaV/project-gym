@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create("members", function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('cpf')->unique();
-            $table->string('phone');
+            $table->string('cpf', 14)->unique();
+            $table->string('phone', 15);
             $table->string('address');
             $table->date('birthdate');
             $table->date('enrollment_date');
