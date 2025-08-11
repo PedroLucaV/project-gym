@@ -7,4 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/user')->group(function(){
     Route::post('/member/register', [UserController::class, 'registerMember']);
     Route::post('/register', [UserController::class, 'registerUser']);
+    Route::middleware('auth:sanctum')->group(function(){
+        Route::post('/admin/register/', [UserController::class, 'registerAdmin']);
+    });
 });
