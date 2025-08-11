@@ -26,5 +26,6 @@ php artisan migrate
 ### `/user`
 | Method | Route             | Description               | Protection                      |
 | ------ | ----------------- | ------------------------- | ------------------------------- |
-| POST   | `/member/register`| Registro de usuário comum | Public                          |
-| POST   | `/register`       | Login                     | Public                          |
+| POST   | `/member/register`| Register member           | Public                          |
+| POST   | `/register`       | Register user             | Public                          |
+| POST   | `/admin/register` | Register Admin            | Protected by token and admin validation|
