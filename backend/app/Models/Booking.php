@@ -23,4 +23,9 @@ class Booking extends Model
         $date = Carbon::parse($value);
         $this->attributes['finished_date'] = $date->copy()->addMinutes(40);
     }
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }
