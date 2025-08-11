@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone');
-            $table->enum('type', ['ADMIN', 'USER'])->default('user');
+            $table->enum('type', ['admin', 'user'])->default('user');
 
             $table->foreignUuid('member_id')->nullable()->constrained('members', 'id')->onDelete('set null');
             $table->timestamps();
