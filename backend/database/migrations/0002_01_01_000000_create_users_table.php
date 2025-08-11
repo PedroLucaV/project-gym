@@ -11,11 +11,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('cpf')->unique();
+            $table->string('cpf', 14)->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone');
-            $table->enum('type', ['ADMIN', 'USER'])->default('USER');
+            $table->string('phone', 15);
+            $table->enum('type', ['admin', 'user'])->default('user');
 
             $table->foreignUuid('member_id')->nullable()->constrained('members', 'id')->onDelete('set null');
             $table->timestamps();
