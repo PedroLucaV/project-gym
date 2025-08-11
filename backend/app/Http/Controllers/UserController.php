@@ -31,4 +31,10 @@ class UserController extends Controller
         $user = User::create($validated);
         return response(['message' => 'Admin Registered', 'data' => $user], 201);
     }
+
+    public function getAll(){
+        //to apply token and admin validation!!!
+        $users = User::with('member')->get();
+        return response(['data' => $users], 200);
+    }
 }
