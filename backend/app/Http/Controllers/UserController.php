@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserUpdateAdminRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Member;
@@ -45,5 +46,13 @@ class UserController extends Controller
         $validated = $request->validated();
         $user->update($validated);
         return response(['data'=>$user, 'message'=> 'User Updated'], 200);
+    }
+
+    public function updateUserAdmin(UserUpdateAdminRequest $request, $id){
+        //To apply token and admin validation
+        $user = User::findOrFail($id);
+        $validated = $request->validated();
+        $user->update($validated);
+        return response(['data' => $user, 'message' => 'User Updated'], 200);
     }
 }
