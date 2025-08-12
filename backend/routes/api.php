@@ -14,5 +14,6 @@ Route::prefix('/user')->group(function(){
     Route::middleware('auth:sanctum')->group(function(){
         Route::post('/admin/register/', [UserController::class, 'registerAdmin']);
         Route::get('/users', [UserController::class, 'getAll']);
+        Route::patch('/{id}', [UserController::class, 'updateUser']);
     });
 });
