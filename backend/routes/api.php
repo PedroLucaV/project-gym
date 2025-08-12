@@ -15,5 +15,6 @@ Route::prefix('/user')->group(function(){
         Route::post('/admin/register/', [UserController::class, 'registerAdmin']);
         Route::get('/users', [UserController::class, 'getAll']);
         Route::patch('/{id}', [UserController::class, 'updateUser']);
+        Route::patch('/{id}/admin', [UserController::class, 'updateUserAdmin']);
     });
 });
