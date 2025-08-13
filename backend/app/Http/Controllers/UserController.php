@@ -55,4 +55,13 @@ class UserController extends Controller
         $user->update($validated);
         return response(['data' => $user, 'message' => 'User Updated'], 200);
     }
+
+    public function deleteUser($id){
+        //To apply token and admin validation
+        $user = User::findOrFail($id);
+        $member = Member::findOrFail($user['member_id']);
+        $member->delete();
+        $user->delete();
+        return response('', 204);
+    }
 }
