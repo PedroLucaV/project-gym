@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\Cpf;
 
 class StoreMemberRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class StoreMemberRequest extends FormRequest
     {
         return [
             'name'=>'required|string|max:255',
-            'cpf'=>'required|string|max:14|regex:/^\d{3}\.\d{3}\.\d{3}-\d{2}$/',
+            'cpf'=> ['required','regex:/^\d{3}\.\d{3}\.\d{3}-\d{2}$/','max:14' ,new Cpf],
             'phone'=>'required|string|max:15|regex:/^\d{8,15}$/',
             'address'=>'required|string',
             'birthdate' => 'required|date',
