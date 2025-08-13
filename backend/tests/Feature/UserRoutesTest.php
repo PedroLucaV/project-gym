@@ -8,7 +8,7 @@ uses(RefreshDatabase::class);
 it('should register successfully members', function() {
     $payload = [
         'name' => 'Membro 1',
-        'cpf' => '123.456.789-10',
+        'cpf' => '983.816.548-40',
         'phone'=> '5582912345678',
         'address'=> '12 Avenue',
         'birthdate' => '2000-01-01',
@@ -18,5 +18,21 @@ it('should register successfully members', function() {
 
     $response = $this->postJson('/api/user/member/register', $payload);
 
-    $response->assertStatus(201);
+    $response->assertStatus(201)
+        ->assertJsonStructure([
+            'message',
+            'data' => [
+                'id',
+                'name',
+                'cpf',
+                'phone',
+                'address',
+                'birthdate',
+                'enrollment_date',
+                'contract_plan'
+            ]
+        ]);
+    $this->assertDatabaseHas('members', [
+        'cpf' => '983.816.548-40'
+    ]);
 });
