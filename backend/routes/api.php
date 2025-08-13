@@ -16,5 +16,6 @@ Route::prefix('/user')->group(function(){
         Route::get('/users', [UserController::class, 'getAll']);
         Route::patch('/{id}', [UserController::class, 'updateUser']);
         Route::patch('/{id}/admin', [UserController::class, 'updateUserAdmin']);
+        Route::delete('/{id}', [UserController::class, 'deleteUser']);
     });
 });
