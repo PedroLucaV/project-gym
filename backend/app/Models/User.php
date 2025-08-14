@@ -34,16 +34,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'created_at',
+        'updated_at'
     ];
 
+    protected $attributes = [
+        'type' => 'user'
+    ];
+    
     public function isUser(): bool
     {
-        return $this->type === 'USER';
+        return $this->type === 'user';
     }
 
     public function isAdmin(): bool
     {
-        return $this->type === 'ADMIN';
+        return $this->type === 'admin';
     }
 
     public function member(){

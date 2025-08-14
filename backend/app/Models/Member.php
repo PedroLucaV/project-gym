@@ -19,4 +19,9 @@ class Member extends Model
         'enrollment_date',
         'contract_plan'
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }

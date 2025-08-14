@@ -17,4 +17,9 @@ class Equipament extends Model
         'localization',
         'state'
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }
